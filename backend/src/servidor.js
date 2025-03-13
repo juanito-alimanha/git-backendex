@@ -1,14 +1,18 @@
 import express from 'express';
+//import cors from 'cors';
 import morgan from 'morgan';
-import rutasEjemploApi from './rutas/EjemploApi.js';
+import rutasProductos from './rutas/productos.js';
 
 const servidor = express();
 
 servidor.use(morgan('dev'));
-servidor.use('/EjemploApi', rutasEjemploApi);
+//servidor.use(cors());
+//servidor.use(express.json());
+//servidor.use(express.urlencoded({ extended: false }));
+servidor.use('/productos', rutasProductos);
 
 servidor.get('/', (solicitud, respuesta) => {
-  respuesta.send('raíz funciona!');
+  respuesta.json({ mensaje: 'raíz ok', data: null });
 });
 
 export default servidor;
