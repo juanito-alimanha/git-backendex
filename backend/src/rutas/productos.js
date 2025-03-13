@@ -1,12 +1,11 @@
 import express from "express"
-
-const ruta = express.Router()
+import ProductosController from "../controladores/productos.js";
+const ruta = express.Router();
 
 // CRUD
-ruta.post('/', (solicitud, respuesta) =>{respuesta.send('crea...')});
-ruta.get('/', (solicitud, respuesta) =>{respuesta.send('lee...')});
-ruta.get('/:id', (solicitud, respuesta) =>{respuesta.send('lee1...')});
-ruta.put('/:id', (solicitud, respuesta) =>{respuesta.send('actualiza...')});
-ruta.delete('/:id', (solicitud, respuesta) =>{respuesta.send('elimina...')});
-
+ruta.post('/', ProductosController.crear);
+ruta.get('/', ProductosController.leerTodos);
+ruta.get('/:id', ProductosController.leerUno);
+ruta.put('/:id', ProductosController.actualizar);
+ruta.delete('/:id', ProductosController.eliminar);
 export default ruta;

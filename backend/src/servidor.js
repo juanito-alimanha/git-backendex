@@ -7,12 +7,12 @@ const servidor = express();
 
 servidor.use(morgan('dev'));
 //servidor.use(cors());
-//servidor.use(express.json());
-//servidor.use(express.urlencoded({ extended: false }));
+servidor.use(express.json());
+servidor.use(express.urlencoded({ extended: false }));
 servidor.use('/productos', rutasProductos);
 
 servidor.get('/', (solicitud, respuesta) => {
-  respuesta.json({ mensaje: 'raíz ok', data: null });
+  respuesta.json({mensaje:"raíz funciona", data: null});
 });
 
 export default servidor;
